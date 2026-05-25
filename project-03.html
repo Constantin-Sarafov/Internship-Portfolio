@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project 03 — CONSTANTIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="project.css">
+<style>
+  .winner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFE600;
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 1rem;
+  }
+
+  .winner-badge::before {
+    content: "★";
+    font-size: 1rem;
+  }
+
+  .winner-proof {
+    margin: 3rem 0;
+    border: 2px solid #FFE600;
+  }
+
+  .winner-proof-header {
+    background: #FFE600;
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .winner-proof-header::before {
+    content: "★";
+  }
+
+  .winner-proof img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .winner-proof-caption {
+    padding: 10px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,230,0,0.3);
+  }
+
+  .stat-cell-num.gold {
+    color: #FFE600;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">CNSTN</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Work</a></li>
+    <li><a href="index.html#contact">Hire me</a></li>
+  </ul>
+</nav>
+
+<!-- PROJECT HERO -->
+<section class="project-hero">
+  <div class="project-hero-left">
+    <a href="index.html#projects" class="back-btn">← Back</a>
+    <span class="back-btn-crumb">Selected Work / Project 03</span>
+    <div class="winner-badge"> #1 — Totem Game Jam 2026</div>
+    <p class="project-hero-type">// Game Jam · 32hr</p>
+    <h1 class="project-hero-title">GRANDPAS<br><span class="accent">FREAKY</span><br>FRIDAY.</h1>
+    <p class="project-hero-tagline">
+  A 32 hour game jam project based on the theme “ragebait,” where I designed and programmed the core gameplay loop as part of a small team working under tight time constraints. 
+  </p>
+  </div>
+  <div class="project-hero-right">
+    <div class="meta-block">
+      <p class="meta-label">Role</p>
+      <p class="meta-value">Designer &amp; Programmer</p>
+    </div>
+    <div class="meta-block">
+      <p class="meta-label">Jam</p>
+      <p class="meta-value">Totem Game Jam · 2026</p>
+    </div>
+    <div class="meta-block">
+      <p class="meta-label">Duration</p>
+      <p class="meta-value">32 hours</p>
+    </div>
+    <div class="meta-block">
+      <p class="meta-label">Engine / Tools</p>
+      <p class="meta-value">Unity · Figma · Minigame Design· Programmer</p>
+    </div>
+    <div class="meta-block">
+      <p class="meta-label">Type</p>
+      <p class="meta-value">
+        <span class="tag">Narrative</span>
+        <span class="tag">Jam Game</span>
+        <span class="tag">32hr</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COVER PANEL -->
+<div class="cover-panel">
+  <div class="cover-panel-image">
+    <img src="Images/Grandpa.gif" alt="Gameplay GIF - Grandpa">
+  </div>
+  <div class="cover-panel-info">
+    <p class="cover-panel-label">Project 03</p>
+    <p class="cover-panel-desc">
+     A chaotic day management game where you keep a group of frustrated grandpas satisfied by rapidly switching between absurd tasks like fixing TV channels, making oversized sandwiches, helping with broken games, and solving a faulty payment system, with success measured in a final end of day report.
+    </p>
+    <div class="cover-panel-links">
+      <a href="https://constanze3.itch.io/winning-game" class="cover-panel-link">Play on itch.io ↗</a>
+      <a href="https://github.com/Constanze3/totem-game-jam-2" class="cover-panel-link secondary">View source ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="project-body">
+
+  <nav class="project-body-nav">
+    <p class="body-nav-label">Contents</p>
+    <ul class="body-nav-links">
+      <li><a href="#overview" class="active">Overview</a></li>
+      <li><a href="#theme">The Theme</a></li>
+      <li><a href="#process">32hr Process</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#winner">We Won</a></li>
+      <li><a href="#lessons">Lessons Learned</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-body-content">
+
+    <!-- OVERVIEW -->
+    <div class="content-section" id="overview">
+      <p class="section-eyebrow">Overview</p>
+      <h2 class="section-heading">THE<br><span class="yellow">GAME.</span></h2>
+      <div class="prose">
+        <p>
+         This game jam project is a collection of 3D minigames where everyday tasks are turned into short, high pressure challenges such as a Frogger like computer game, a timed sandwich making task, a TV remote input challenge, and a precision card swipe mechanic.
+       </p>
+        <p>
+         The experience is comedic and intentionally stressful, focusing on lighthearted frustration rather than a traditional win or lose structure. Players move through a sequence of minigames and receive a final score based on performance, creating a short replayable “bad day simulator.”
+        </p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-cell">
+          <p class="stat-cell-num">32</p>
+          <p class="stat-cell-label">Hours to ship</p>
+        </div>
+        <div class="stat-cell">
+          <p class="stat-cell-num">5</p>
+          <p class="stat-cell-label">Team size</p>
+        </div>
+        <div class="stat-cell">
+          <p class="stat-cell-num gold">#1</p>
+          <p class="stat-cell-label">Jam ranking</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THEME -->
+    <div class="content-section" id="theme">
+      <p class="section-eyebrow">The Theme</p>
+      <h2 class="section-heading">RESPONDING<br><span class="yellow">TO THE BRIEF.</span></h2>
+      <div class="prose">
+        <p>
+         The jam theme was “ragebait,” which I interpreted as designing interactions that intentionally create frustration through simple but unpredictable gameplay moments. Instead of taking it literally, I focused on turning familiar tasks into slightly unfair or awkward challenges that create tension and comedic frustration.
+        </p>
+        <p>
+         Early on, we considered building a single continuous experience around one mechanic, but this quickly felt too limited for the variety we wanted. We pivoted to a structure of multiple short minigames, which allowed each idea to explore a different type of frustration such as timing, spatial awareness, and precision under pressure.
+        </p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Jam theme:</strong>“Ragebait” — I interpreted it as designing intentionally frustrating interactions through simple mechanics that become stressful under pressure.</p>
+      </div>
+    </div>
+
+    <!-- 32HR PROCESS -->
+    <div class="content-section" id="process">
+      <p class="section-eyebrow">48hr Process</p>
+      <h2 class="section-heading">HOUR BY<br><span class="yellow">HOUR.</span></h2>
+      <div class="prose">
+        <p>
+          This jam was built under tight time pressure, so development was heavily focused on quickly prototyping ideas, identifying what worked, and cutting anything that didn’t fit the core experience.
+        </p>
+      </div>
+
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-num" style="color: rgba(255,42,0,0.4);">H0</div>
+          <div class="lesson-text">
+            <strong>Theme drop — ideation</strong>
+            We brainstormed ideas around “ragebait,” focusing on turning simple interactions into short frustrating minigames that could be understood instantly under pressure.</p>
+          </div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num" style="color: rgba(255,42,0,0.4);">H8</div>
+          <div class="lesson-text">
+            <strong>Core loop prototype</strong>
+           A playable build connected multiple minigames through a simple flow system, confirming that variety and rapid switching created stronger tension than a single mechanic.</p>
+          </div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num" style="color: rgba(255,42,0,0.4);">H16</div>
+          <div class="lesson-text">
+            <strong>Halfway — what got cut</strong>
+           We cut a popup “computer virus” minigame due to time constraints and prioritised polishing the existing minigames for stability and consistency.</p>
+          </div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num" style="color: rgba(255,42,0,0.4);">H32</div>
+          <div class="lesson-text">
+            <strong>Submission</strong>
+           The final build is a sequence of short 3D minigames built for fast paced comedic frustration. I’m most satisfied with the variety achieved within the time limit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREENSHOTS -->
+    <div class="content-section" id="screenshots">
+      <p class="section-eyebrow">Screenshots</p>
+      <h2 class="section-heading">IN THE<br><span class="yellow">GAME.</span></h2>
+
+      <div class="media-grid">
+        <div class="media-cell">
+         <img src="Images/Grandpa1.png" alt="Gameplay screenshot 01">        
+        </div>
+        <div class="media-cell">
+          <img src="Images/Grandpa2.png" alt="Gameplay screenshot 01">
+        </div>
+        <div class="media-cell">
+          <img src="Images/Grandpa3.png" alt="Gameplay screenshot 01">
+        </div>
+        <div class="media-cell">
+          <img src="Images/Grandpa4.png" alt="Gameplay screenshot 01">
+        </div>
+      </div>
+    </div>
+
+    <!-- WE WON -->
+    <div class="content-section" id="winner">
+      <p class="section-eyebrow">Results</p>
+      <h2 class="section-heading">WE<br><span class="yellow">WON.</span></h2>
+      <div class="prose">
+        <p>
+          Out of 10 entries, <strong>Grandpas' Freaky Friday</strong> placed first at Totem Game Jam 2026. Here's the official results page.
+        </p>
+      </div>
+
+      <div class="winner-proof">
+        <div class="winner-proof-header">★ &nbsp;Official results — Totem Game Jam 2026</div>
+        <img src="Images/Win.png" alt="Totem Game Jam 2026 results page showing Grandpas' Freaky Friday in first place" />
+        <p class="winner-proof-caption">// totemgamejam2026 · March 28–29 2026 · 10 entries</p>
+      </div>
+    </div>
+
+    <!-- LESSONS -->
+    <div class="content-section" id="lessons">
+      <p class="section-eyebrow">Lessons Learned</p>
+      <h2 class="section-heading">WHAT I<br><span class="yellow">TOOK AWAY.</span></h2>
+      <div class="prose">
+        <p>
+          This being my first game jam, the 32 hour timeframe made it clear how much design depends on scope, speed, and decision making under pressure, where ideas constantly need to be tested, adjusted, or cut.
+        </p>
+      </div>
+
+      <div class="lesson-list">
+        <div class="lesson-item">
+          <div class="lesson-num">01</div>
+          <div class="lesson-text">
+            <strong>Designing under extreme time pressure</strong>
+            This being my first ever game jam, I learned how quickly design decisions need to be made under extreme time pressure. It revealed that I naturally focus on building small, testable interactions first rather than overplanning systems.
+          </div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num">02</div>
+          <div class="lesson-text">
+            <strong>Scope control is a core design skill</strong>
+            If I had the same constraints again, I would commit earlier to cutting ideas instead of trying to keep too many concepts alive at once, as scope control became the main challenge throughout development.
+          </div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num">03</div>
+          <div class="lesson-text">
+            <strong>Turning chaos into a finished product</strong>
+            I’m most proud of how we managed to turn a large set of ideas into a cohesive playable experience within 48 hours, especially given that this was my first game jam and my first time working under this level of time pressure.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROJECT NAVIGATION FOOTER -->
+<div class="project-nav-footer">
+  <a href="project-02.html" class="proj-nav-item">
+    <span class="proj-nav-dir">← Previous</span>
+    <span class="proj-nav-name">PUZZLE GAME</span>
+  </a>
+  <a href="index.html#contact" class="proj-nav-item" style="text-align:right; align-items:flex-end;">
+    <span class="proj-nav-dir">Get in touch →</span>
+    <span class="proj-nav-name">HIRE ME.</span>
+  </a>
+</div>
+
+<div class="footer-strip">
+  <span>© 2026 Constantin — Game Designer</span>
+  <span>★ OPEN TO INTERNSHIPS ★</span>
+  <span>Made with intent</span>
+</div>
+
+</body>
+</html>

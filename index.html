@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONSTANTIN — GAME DESIGNER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── project-02 card: under construction ── */
+  .project-card-wip {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* animated caution stripe across the top of the card */
+  .project-card-wip::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      #f59e0b 0px, #f59e0b 14px,
+      #1a1520 14px, #1a1520 28px
+    );
+    background-size: 56px 100%;
+    animation: cautionScroll 2s linear infinite;
+    z-index: 5;
+  }
+
+  @keyframes cautionScroll {
+    from { background-position: 0 0; }
+    to   { background-position: 56px 0; }
+  }
+
+  /* diagonal caution tape strip across the card body */
+  .project-card-wip::after {
+    content: '⚠ UNDER CONSTRUCTION ⚠ UNDER CONSTRUCTION ⚠ UNDER CONSTRUCTION ⚠';
+    position: absolute;
+    bottom: 28px;
+    left: -60px;
+    right: -60px;
+    background: #f59e0b;
+    color: #0d0a1a;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-align: center;
+    padding: 4px 0;
+    transform: rotate(-6deg);
+    z-index: 4;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">CNSTN</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Hire me</a></li>
+  </ul>
+</nav>
+
+<div class="ticker">
+  <span class="ticker-inner">
+    GAME DESIGNER &nbsp;★&nbsp; OPEN TO INTERNSHIPS 2026 &nbsp;★&nbsp; SYSTEMS · LEVELS · NARRATIVE &nbsp;★&nbsp; UNITY &amp; UNREAL &nbsp;★&nbsp; SEEKING STUDIOS &nbsp;★&nbsp; GAME DESIGNER &nbsp;★&nbsp; OPEN TO INTERNSHIPS 2026 &nbsp;★&nbsp; SYSTEMS · LEVELS · NARRATIVE &nbsp;★&nbsp; UNITY &amp; UNREAL &nbsp;★&nbsp; SEEKING STUDIOS &nbsp;★&nbsp;
+  </span>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+
+    <!-- PORTRAIT CARD — draggable, expandable -->
+    <div class="hero-portrait" id="portrait">
+      <img src="Images/Portfolio.jpg" alt="Constantin">
+      <div class="hero-portrait-label">
+        <span>Constantin</span><span>GD</span>
+      </div>
+      <button class="portrait-expand" id="portraitExpand" title="Expand">&#10530;</button>
+    </div>
+
+    <!-- Arrow hint pointing at the portrait -->
+    <div class="portrait-hint" id="portraitHint">
+      <span class="portrait-hint-text"></span>
+    </div>
+
+    <p class="hero-label">// GAME DESIGNER <span>▮</span> OPEN TO HIRE</p>
+    <h1 class="hero-name">
+      <span class="glitch" data-text="CONSTANTIN.">CONSTANTIN.</span>
+    </h1>
+    <p class="hero-desc">
+      I design game systems and player experiences — crafting <strong>mechanics, narratives, and worlds</strong> that invite discovery. Currently looking for a game design internship where I can learn fast and contribute meaningfully.
+    </p>
+    <a href="#projects" class="hero-cta">View work →</a>
+
+    <!-- AWARD BADGE -->
+    <div class="award-badge">
+      <span class="award-badge-icon"></span>
+      <div>
+        <p class="award-badge-title">Totem Game Jam 2026</p>
+        <p class="award-badge-sub">// Winner</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS COLUMN -->
+  <div class="hero-right">
+    <div class="hero-stat" data-num="3">
+      <p class="stat-num">3</p>
+      <p class="stat-label">Projects shipped</p>
+    </div>
+    <div class="hero-stat" data-num="1">
+      <p class="stat-num">1</p>
+      <p class="stat-label">Game jams entered</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-divider">
+  <div class="marquee-track">
+    <span class="marquee-item">SYSTEMS DESIGN <span></span></span>
+    <span class="marquee-item">LEVEL DESIGN <span></span></span>
+    <span class="marquee-item">GAME WRITING <span></span></span>
+    <span class="marquee-item">UNITY <span></span></span>
+    <span class="marquee-item">UNREAL ENGINE <span></span></span>
+    <span class="marquee-item">RAPID PROTOTYPING <span></span></span>
+    <span class="marquee-item">PLAYTESTING <span></span></span>
+    <span class="marquee-item">SYSTEMS DESIGN <span></span></span>
+    <span class="marquee-item">LEVEL DESIGN <span></span></span>
+    <span class="marquee-item">GAME WRITING <span></span></span>
+    <span class="marquee-item">UNITY <span></span></span>
+    <span class="marquee-item">UNREAL ENGINE <span></span></span>
+    <span class="marquee-item">RAPID PROTOTYPING <span></span></span>
+    <span class="marquee-item">PLAYTESTING <span></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-sidebar">
+    <div>
+      <p class="sidebar-label">About</p>
+      <div class="sidebar-index">02</div>
+    </div>
+    <div class="sidebar-skills">
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Systems Design</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Level Design</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Unity</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Unreal Engine</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Game Writing</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Rapid Prototyping</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Playtesting</span></div>
+      <div class="skill-row"><div class="skill-dot"></div><span class="skill-name">Figma</span></div>
+    </div>
+  </div>
+  <div class="about-main">
+    <h2 class="about-heading">
+      DESIGN IS<br>
+      <span class="scratch">PRETTY</span><br>
+      <span class="highlight">FEELING.</span>
+    </h2>
+    <div class="about-body">
+      <p>I'm a game design student with a strong interest in <strong>systems design, player psychology, and creating engaging, memorable gameplay experiences.</strong> I'm especially interested in how mechanics, pacing, and feedback shape player decisions and moment-to-moment experience.</p>
+      <p>My work spans <strong>coding, game design, research, and UI design</strong>, which has helped me understand how different parts of development come together to shape how a full game feels to play. I thoroughly enjoy prototyping and testing mechanics beyond their original plans, refining gameplay feel, and designing systems that encourage experimentation and interaction.</p>
+      <p>As of now, I'm looking for an internship where I can contribute to a real production pipeline, work alongside experienced developers, and continue improving both my design and technical skills.</p>
+      <div class="about-footnote">
+        // AVAILABLE FOR: internships · contract work · game jams · collaborations
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <p class="projects-header-label">SELECTED WORK</p>
+    <p class="projects-count">// 03 projects</p>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card project-featured" onclick="location.href='project-01.html'">
+      <p class="project-num">01</p>
+      <p class="project-type">// Passion Project</p>
+      <h3 class="project-title">HONEY HOARDERS</h3>
+      <p class="project-desc">Honey Hoarder is a systems-driven game where I designed a core loop of risk-based resource collection, focusing on balancing tension, pacing, and emergent decision-making through simple but interacting mechanics.</p>
+      <div class="project-tags">
+        <span class="project-tag">Unity</span>
+        <span class="project-tag">Coding</span>
+        <span class="project-tag">UX</span>
+        <span class="project-tag">Design</span>
+        <span class="project-tag">Duo</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 02 — UNDER CONSTRUCTION -->
+    <div class="project-card project-card-wip" onclick="location.href='project-02.html'">
+      <p class="project-num">02</p>
+      <p class="project-type">// Level design</p>
+      <h3 class="project-title">Puzzle Game</h3>
+      <p class="project-desc">Short description of this project — what genre, what mechanic, what problem you were solving as a designer.</p>
+      <div class="project-tags">
+        <span class="project-tag">Programmer</span>
+        <span class="project-tag">Unreal</span>
+        <span class="project-tag">Team</span>
+        <span class="project-tag" style="color:#f59e0b; border-color:#f59e0b; background:rgba(245,158,11,0.08);">WIP</span>
+      </div>
+    </div>
+
+    <div class="project-card project-award" onclick="location.href='project-03.html'">
+      <p class="project-num">03</p>
+      <p class="project-type">// Game jam · 32hr</p>
+      <h3 class="project-title">TOTEM JAM ENTRY</h3>
+      <p class="project-desc">Game jam entry, academic project, or personal prototype. Highlight the design thinking and constraints you worked within.</p>
+      <div class="project-tags">
+        <span class="project-tag">Narrative</span>
+        <span class="project-tag">Game Jam</span>
+        <span class="project-tag">32hr</span>
+        <span class="project-tag project-tag--award">Winner</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <div>
+      <h2 class="contact-heading">
+        OPEN<br>
+        <span class="red">FOR</span><br>
+        <span class="yellow">WORK.</span>
+      </h2>
+      <p class="contact-sub">Open to internship opportunities and collaboration on game projects.</p>
+    </div>
+    <a href="mailto:sarafovconstantin457@gmail.com" class="contact-email-big">sarafovconstantin457@gmail.com →</a>
+  </div>
+  <div class="contact-right">
+    <div>
+      <p class="sidebar-label" style="margin-bottom:2rem;">// Find me here</p>
+      <div class="contact-links-grid">
+        <a href="https://linkedin.com" class="contact-link-row">
+          <span class="link-platform">LinkedIn</span>
+          <span class="link-name">linkedin.com/in/yourprofile</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="https://github.com" class="contact-link-row">
+          <span class="link-platform">GitHub</span>
+          <span class="link-name">github.com/yourhandle</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="#" class="contact-link-row">
+          <span class="link-platform">Itch.io</span>
+          <span class="link-name">itch.io/yourprofile</span>
+          <span class="link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+    <div style="margin-top: 4rem;">
+      <p style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(242,240,232,0.2);">
+        // Available for internship 2026 · Based in Eindhoven · Open to remote
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="footer-strip">
+  <span>© 2026 Constantin — Game Designer</span>
+  <span>★ OPEN TO INTERNSHIPS ★</span>
+  <span>Made with intent</span>
+</div>
+
+<script>
+(function() {
+  const portrait = document.getElementById('portrait');
+  const hint = document.getElementById('portraitHint');
+  const expandBtn = document.getElementById('portraitExpand');
+
+  let isDragging = false, startX, startY, origLeft, origTop;
+  let isExpanded = false;
+
+  function dismissHint() {
+    hint.style.opacity = '0';
+    hint.style.pointerEvents = 'none';
+    setTimeout(() => hint.style.display = 'none', 400);
+  }
+
+  expandBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dismissHint();
+    isExpanded = !isExpanded;
+    portrait.classList.toggle('portrait-expanded', isExpanded);
+    expandBtn.textContent = isExpanded ? '⤡' : '⤢';
+  });
+
+  portrait.addEventListener('mousedown', function(e) {
+    if (e.target === expandBtn) return;
+    dismissHint();
+    isDragging = true;
+    portrait.style.transition = 'none';
+
+    const rect = portrait.getBoundingClientRect();
+    const parentRect = portrait.offsetParent.getBoundingClientRect();
+    startX = e.clientX;
+    startY = e.clientY;
+    origLeft = rect.left - parentRect.left;
+    origTop  = rect.top  - parentRect.top;
+
+    portrait.style.right = 'unset';
+    portrait.style.left = origLeft + 'px';
+    portrait.style.top  = origTop  + 'px';
+    portrait.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    portrait.style.left = (origLeft + dx) + 'px';
+    portrait.style.top  = (origTop  + dy) + 'px';
+  });
+
+  document.addEventListener('mouseup', function() {
+    if (!isDragging) return;
+    isDragging = false;
+    portrait.style.cursor = 'grab';
+  });
+
+  portrait.addEventListener('touchstart', function(e) {
+    if (e.target === expandBtn) return;
+    dismissHint();
+    const t = e.touches[0];
+    isDragging = true;
+    portrait.style.transition = 'none';
+    const rect = portrait.getBoundingClientRect();
+    const parentRect = portrait.offsetParent.getBoundingClientRect();
+    startX = t.clientX; startY = t.clientY;
+    origLeft = rect.left - parentRect.left;
+    origTop  = rect.top  - parentRect.top;
+    portrait.style.right = 'unset';
+    portrait.style.left = origLeft + 'px';
+    portrait.style.top  = origTop  + 'px';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function(e) {
+    if (!isDragging) return;
+    const t = e.touches[0];
+    portrait.style.left = (origLeft + t.clientX - startX) + 'px';
+    portrait.style.top  = (origTop  + t.clientY - startY) + 'px';
+  }, { passive: true });
+
+  document.addEventListener('touchend', function() { isDragging = false; });
+})();
+</script>
+</body>
+</html>
