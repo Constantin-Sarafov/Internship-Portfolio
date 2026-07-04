@@ -8,360 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="project.css">
-<style>
-  /* The construction text */
-
-  .caution-bar {
-    height: 28px;
-    background: repeating-linear-gradient(
-      45deg,
-      #f59e0b 0px, #f59e0b 18px,
-      #1a1520 18px, #1a1520 36px
-    );
-    background-size: 51px 51px;
-    animation: stripeScroll 4s linear infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  @keyframes stripeScroll {
-    from { background-position: 0 0; }
-    to   { background-position: 51px 51px; }
-  }
-
-  .caution-bar-text {
-    font-family: var(--display);
-    font-size: 0.85rem;
-    letter-spacing: 0.25em;
-    color: var(--black);
-    background: #f59e0b;
-    padding: 0 1rem;
-    white-space: nowrap;
-    z-index: 2;
-  }
-
-  .caution-bar-bottom {
-    height: 10px;
-    background: repeating-linear-gradient(
-      45deg,
-      #f59e0b 0px, #f59e0b 12px,
-      #1a1520 12px, #1a1520 24px
-    );
-    background-size: 34px 34px;
-    animation: stripeScroll 3s linear infinite reverse;
-  }
-
-  .scaffold-bar {
-    height: 8px;
-    background: linear-gradient(to right, #b45309, #d97706, #b45309, #d97706);
-    border-bottom: 2px solid #78350f;
-  }
-
-  /* Status badge in hero */
-  .status-wip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    border: 2px solid #f59e0b;
-    background: rgba(245,158,11,0.08);
-    align-self: flex-start;
-    margin-top: 0.5rem;
-  }
-
-  .status-dot {
-    width: 8px; height: 8px;
-    background: #f59e0b;
-    border-radius: 50%;
-    animation: wipPulse 1s ease-in-out infinite;
-  }
-
-  @keyframes wipPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.7); }
-  }
-
-  .status-text {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #f59e0b;
-  }
-
-  /* Redacted title word */
-  .title-redact {
-    display: inline-block;
-    color: transparent;
-    background: #f59e0b;
-    padding: 0 0.5rem;
-    vertical-align: middle;
-    min-width: 280px;
-    animation: redactFlicker 6s ease-in-out infinite;
-  }
-
-  @keyframes redactFlicker {
-    0%, 85%, 100% { opacity: 1; }
-    87%            { opacity: 0.5; }
-    89%            { opacity: 1; }
-    91%            { opacity: 0.65; }
-    93%            { opacity: 1; }
-  }
-
-  /* Redacted inline text */
-  .redact-inline {
-    background: rgba(232,234,245,0.15);
-    color: transparent;
-    border-radius: 2px;
-    user-select: none;
-  }
-
-  /* Cover panel, the construction image zone */
-  .cover-panel-placeholder.wip-zone {
-    background: #0a0815;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .cover-panel-image {
-    display: flex;
-    align-self: stretch;
-  }
-
-  .wip-zone .construction-overlay {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent 0px, transparent 28px,
-      rgba(245,158,11,0.06) 28px, rgba(245,158,11,0.06) 56px
-    );
-  }
-
-  .wip-zone .pole {
-    position: absolute;
-    width: 4px;
-    background: linear-gradient(to bottom, #92400e, #d97706, #92400e);
-    top: 0; bottom: 0;
-  }
-
-  .wip-zone .pole-1 { left: 20%; }
-  .wip-zone .pole-2 { left: 50%; }
-  .wip-zone .pole-3 { left: 80%; }
-
-  .wip-zone .plank {
-    position: absolute;
-    height: 6px;
-    background: linear-gradient(to right, #78350f, #b45309, #78350f);
-    left: 0; right: 0;
-  }
-
-  .wip-zone .plank-1 { top: 30%; }
-  .wip-zone .plank-2 { top: 65%; }
-
-  .wip-zone .bolt {
-    position: absolute;
-    width: 10px; height: 10px;
-    background: #d97706;
-    border-radius: 50%;
-    border: 2px solid #78350f;
-    z-index: 5;
-  }
-
-  .wip-zone .bolt-tl { top: 10px; left: 10px; }
-  .wip-zone .bolt-tr { top: 10px; right: 10px; }
-  .wip-zone .bolt-bl { bottom: 10px; left: 10px; }
-  .wip-zone .bolt-br { bottom: 10px; right: 10px; }
-
-  .wip-zone .sign {
-    position: relative;
-    z-index: 5;
-    text-align: center;
-  }
-
-  .wip-zone .sign-num {
-    font-family: var(--display);
-    font-size: 5rem;
-    color: rgba(245,158,11,0.15);
-    line-height: 1;
-    display: block;
-  }
-
-  .wip-zone .sign-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.4rem;
-  }
-
-  .wip-zone .sign-label {
-    font-family: var(--display);
-    font-size: 1.8rem;
-    color: #f59e0b;
-    letter-spacing: 0.1em;
-    display: block;
-  }
-
-  .wip-zone .sign-sub {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: rgba(245,158,11,0.5);
-    text-transform: uppercase;
-    display: block;
-    margin-top: 0.25rem;
-  }
-
-  /* Progress tracker in the cover panel desc area */
-  .progress-tracker {
-    margin-top: 1rem;
-  }
-
-  .progress-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(232,234,245,0.35);
-    margin-bottom: 0.4rem;
-  }
-
-  .progress-header span:last-child { color: #f59e0b; }
-
-  .progress-bar-wrap {
-    height: 5px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-  }
-
-  .progress-fill {
-    height: 100%;
-    width: 40%;
-    background: linear-gradient(to right, #f59e0b, #fbbf24);
-    position: relative;
-  }
-
-  .progress-fill::after {
-    content: '';
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
-    width: 20px;
-    background: rgba(255,255,255,0.35);
-    animation: scanline 1.5s ease-in-out infinite;
-  }
-
-  @keyframes scanline {
-    0%, 100% { opacity: 0; }
-    50%       { opacity: 1; }
-  }
-
-  .milestone {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .milestone-check {
-    width: 12px; height: 12px;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-  }
-
-  .milestone-check.done    { border-color: #22c55e; background: rgba(34,197,94,0.1); color: #22c55e; }
-  .milestone-check.current { border-color: #f59e0b; background: rgba(245,158,11,0.1); color: #f59e0b; animation: wipPulse 1s ease-in-out infinite; }
-
-  .milestone-label { font-size: 0.65rem; color: rgba(232,234,245,0.4); }
-  .milestone-label.done    { color: rgba(232,234,245,0.75); }
-  .milestone-label.current { color: #f59e0b; }
-
-  /* WIP callout box */
-  .callout-wip {
-    border-left-color: #f59e0b;
-    background: rgba(245,158,11,0.06);
-    color: rgba(245,158,11,0.8);
-  }
-
-  .callout-wip strong { color: #f59e0b; }
-
-  /* Sidebar nav dots */
-  .nav-dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    margin-right: 0.4rem;
-    vertical-align: middle;
-    flex-shrink: 0;
-  }
-
-  .nav-dot.wip     { background: #f59e0b; animation: wipPulse 1s ease-in-out infinite; }
-  .nav-dot.blocked { background: rgba(255,255,255,0.15); }
-
-  /* Blocked section overlay */
-  .section-blocked {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .blocked-overlay {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent 0px, transparent 20px,
-      rgba(245,158,11,0.04) 20px, rgba(245,158,11,0.04) 40px
-    );
-    backdrop-filter: blur(0.5px);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .blocked-stamp {
-    border: 3px solid #f59e0b;
-    padding: 0.5rem 1.5rem;
-    transform: rotate(-8deg);
-    background: rgba(245,158,11,0.05);
-  }
-
-  .blocked-stamp-text {
-    font-family: var(--display);
-    font-size: 2rem;
-    letter-spacing: 0.2em;
-    color: #f59e0b;
-    opacity: 0.7;
-  }
-
-  /* Dim text inside blocked sections */
-  .section-blocked .prose p,
-  .section-blocked .stat-cell-num,
-  .section-blocked .stat-cell-label,
-  .section-blocked .media-cell,
-  .section-blocked .lesson-item {
-    opacity: 0.2;
-  }
-</style>
 </head>
 <body>
-
-<!-- CAUTION TOP BAR -->
-<div class="caution-bar">
-  <span class="caution-bar-text">⚠ UNDER CONSTRUCTION — WORK IN PROGRESS — DO NOT ENTER — ⚠</span>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -373,8 +21,6 @@
   </ul>
 </nav>
 
-<div class="scaffold-bar"></div>
-
 <!-- PROJECT HERO -->
 <section class="project-hero">
   <div class="project-hero-left">
@@ -382,22 +28,17 @@
     <span class="back-btn-crumb">Selected Work / Project 02</span>
     <p class="project-hero-type">// Programming</p>
     <h1 class="project-hero-title">
-      PUZZLE<br>
-      <span class="title-redact">████████████</span><br>
-      GAME.
+      SLIDE &<br>
+      <span class="yellow">REVEAL.</span>
     </h1>
     <p class="project-hero-tagline">
-      <span class="redact-inline"> Come back soon! </span> — content coming soon.
+      Turn any photo into a personalized sliding puzzle. Upload an image, pick a difficulty, and send the link to someone you love — they solve it to reveal the picture.
     </p>
-    <div class="status-wip">
-      <div class="status-dot"></div>
-      <span class="status-text">Work in progress — ETA unknown</span>
-    </div>
   </div>
   <div class="project-hero-right">
     <div class="meta-block">
       <p class="meta-label">Role</p>
-      <p class="meta-value">Programmer</p>
+      <p class="meta-value">Head Programmer</p>
     </div>
     <div class="meta-block">
       <p class="meta-label">Timeline</p>
@@ -405,19 +46,19 @@
     </div>
     <div class="meta-block">
       <p class="meta-label">Engine / Tools</p>
-      <p class="meta-value">Unreal Engine </p>
+      <p class="meta-value">Unity, Figma</p>
     </div>
     <div class="meta-block">
       <p class="meta-label">Type</p>
       <p class="meta-value">
-        <span class="tag">Programmer</span>
+        <span class="tag">Head Programmer</span>
         <span class="tag">Team</span>
-        <span class="tag">PC • Mobile</span>
+        <span class="tag">Mobile</span>
       </p>
     </div>
     <div class="meta-block">
       <p class="meta-label">Status</p>
-      <p class="meta-value" style="color:#f59e0b;"> In progress</p>
+      <p class="meta-value">Live on itch.io</p>
     </div>
   </div>
 </section>
@@ -425,62 +66,18 @@
 <!-- COVER PANEL -->
 <div class="cover-panel">
   <div class="cover-panel-image">
-    <div class="cover-panel-placeholder wip-zone">
-      <div class="construction-overlay"></div>
-      <div class="pole pole-1"></div>
-      <div class="pole pole-2"></div>
-      <div class="pole pole-3"></div>
-      <div class="plank plank-1"></div>
-      <div class="plank plank-2"></div>
-      <div class="bolt bolt-tl"></div>
-      <div class="bolt bolt-tr"></div>
-      <div class="bolt bolt-bl"></div>
-      <div class="bolt bolt-br"></div>
-      <div class="sign">
-        <span class="sign-num">02</span>
-        <span class="sign-label">UNDER CONSTRUCTION</span>
-        <span class="sign-sub">Screenshot coming when it's ready</span>
-      </div>
+    <div class="cover-panel-placeholder" style="min-height:400px; overflow:hidden; background:#c4a63e; display:flex; align-items:center; justify-content:center;">
+      <img src="Images/project-02-shot-02.png" alt="Slide & Reveal upload and difficulty screen on mobile" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
     </div>
   </div>
   <div class="cover-panel-info">
     <p class="cover-panel-label">Project 02</p>
     <p class="cover-panel-desc">
-      This case study is actively being written. Content, screenshots, and the full write-up will appear here once the project is ready to publish.
+      A lightweight puzzle-as-a-message app: pick a photo, choose how hard it should be to solve, and get a link. Whoever opens it has to slide the tiles back into place before they see what you sent them.
     </p>
-
-    <div class="progress-tracker">
-      <div class="progress-header">
-        <span>Build progress</span>
-        <span>~40%</span>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-fill"></div>
-      </div>
-      <div class="milestone">
-        <div class="milestone-check done">✓</div>
-        <span class="milestone-label done">Project kicked off</span>
-      </div>
-      <div class="milestone">
-        <div class="milestone-check done">✓</div>
-        <span class="milestone-label done">Blockout complete</span>
-      </div>
-      <div class="milestone">
-        <div class="milestone-check current">→</div>
-        <span class="milestone-label current">Writing case study copy</span>
-      </div>
-      <div class="milestone">
-        <div class="milestone-check"></div>
-        <span class="milestone-label">Screenshots + GIFs</span>
-      </div>
-      <div class="milestone">
-        <div class="milestone-check"></div>
-        <span class="milestone-label">Final polish &amp; publish</span>
-      </div>
-    </div>
-
+    <p style="font-size:0.75rem; color:rgba(232,234,245,0.7); margin-top:0.75rem; margin-bottom:0.75rem;">Best played on a phone — the gallery upload and touch controls are built for mobile, not desktop.</p>
     <div class="cover-panel-links">
-      <span class="cover-panel-link" style="opacity:0.3; cursor:not-allowed;">Play on itch.io — coming soon</span>
+      <a href="https://constantin-sarafov.itch.io/puzzle-sliding-game" target="_blank" rel="noopener" class="cover-panel-link">Play on itch.io →</a>
     </div>
   </div>
 </div>
@@ -491,11 +88,11 @@
   <nav class="project-body-nav">
     <p class="body-nav-label">Contents</p>
     <ul class="body-nav-links">
-      <li><a href="#overview"><span class="nav-dot wip"></span>Overview</a></li>
-      <li><a href="#layout"><span class="nav-dot blocked"></span>Level Layout</a></li>
-      <li><a href="#flow"><span class="nav-dot blocked"></span>Player Flow</a></li>
-      <li><a href="#screenshots"><span class="nav-dot blocked"></span>Screenshots</a></li>
-      <li><a href="#lessons"><span class="nav-dot blocked"></span>Lessons Learned</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#layout">How It Works</a></li>
+      <li><a href="#flow">Player Flow</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#lessons">Lessons Learned</a></li>
     </ul>
   </nav>
 
@@ -504,95 +101,100 @@
     <!-- OVERVIEW -->
     <div class="content-section" id="overview">
       <p class="section-eyebrow">Overview</p>
-      <h2 class="section-heading">THE<br><span class="yellow">LEVEL.</span></h2>
+      <h2 class="section-heading">THE<br><span class="yellow">IDEA.</span></h2>
       <div class="prose">
-        <p>Content for this section is currently being drafted. Check back soon for the full overview of the level, its setting, mood, and design goals.</p>
+        <p>Slide &amp; Reveal is a browser-based sliding puzzle generator built as a small gift-giving tool. Instead of just sending a photo, you send a challenge: the recipient has to actually solve a puzzle before they get to see it.</p>
+        <p>The flow is simple by design. You upload a picture, pick a grid size (which sets the difficulty), and the app spits out a shareable link. Open that link on any phone or PC, and you're dropped straight into a scrambled version of the image — no account, no install, no friction. Solve it, and the full picture snaps into place.</p>
+        <p>As head programmer on this one, I was also responsible for folding several other standalone mini-games the team had built into a single bundled app in Unity — merging them into one build with a shared menu, consistent navigation, and a common save/settings structure so they could all ship together instead of as separate installs.</p>
       </div>
-      <div class="callout callout-wip">
-        <p><strong>Work in progress:</strong> This section will describe the level at a high level, its place in the game structure, and the core design intent.</p>
+      <div class="callout">
+        <p><strong>Design intent:</strong> Zero setup for the solver. If someone has to sign up, install something, or figure out the UI before they can play, the "surprise" of the gift is already ruined.</p>
+      </div>
+      <div class="callout callout-wip" style="border-left-color:#f59e0b; background:rgba(245,158,11,0.06); color:rgba(245,158,11,0.85);">
+        <p><strong>Heads up:</strong> This game was built during an unusually disorganized semester, so if you play it, some things may not work perfectly — expect a few rough edges rather than a fully polished release.</p>
       </div>
       <div class="stat-row">
         <div class="stat-cell">
-          <p class="stat-cell-num">—</p>
-          <p class="stat-cell-label">Encounters</p>
+          <p class="stat-cell-num">3</p>
+          <p class="stat-cell-label">Difficulty tiers</p>
         </div>
         <div class="stat-cell">
-          <p class="stat-cell-num">—</p>
-          <p class="stat-cell-label">Est. play time</p>
+          <p class="stat-cell-num">1</p>
+          <p class="stat-cell-label">Tap to share</p>
         </div>
         <div class="stat-cell">
-          <p class="stat-cell-num">—</p>
-          <p class="stat-cell-label">Iterations</p>
+          <p class="stat-cell-num">0</p>
+          <p class="stat-cell-label">Accounts required</p>
         </div>
       </div>
     </div>
 
-    <!-- LAYOUT -->
-    <div class="content-section section-blocked" id="layout">
-      <div class="blocked-overlay">
-        <div class="blocked-stamp"><span class="blocked-stamp-text">NOT YET</span></div>
-      </div>
-      <p class="section-eyebrow">Level Layout</p>
-      <h2 class="section-heading">SPACE &amp;<br><span class="yellow">STRUCTURE.</span></h2>
+    <!-- HOW IT WORKS -->
+    <div class="content-section" id="layout">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-heading">UNDER THE<br><span class="yellow">HOOD.</span></h2>
       <div class="prose">
-        <p>Come back soon for more info on the project!</p>
-      </div>
-      <div class="media-grid" style="grid-template-columns: 1fr;">
-        <div class="media-cell" style="aspect-ratio: 16/7;">
-          <div class="media-cell-placeholder">Level map / blockout overview</div>
-        </div>
+        <p>The system breaks into three pieces: the uploader, the puzzle generator, and the shareable link itself.</p>
+        <p><strong>Uploader.</strong> The sender picks an image and a difficulty (easy, medium, hard), which maps to a grid size — for example a 3×3 grid for easy up to a 5×5 grid for hard. The image is cropped to a square and sliced into tiles client-side, so nothing needs to be pre-processed on a server before it can be shared.</p>
+        <p><strong>Puzzle generator.</strong> The tiles are shuffled using a random shuffle that's checked for solvability rather than a pure random sort. Sliding puzzles are only solvable from roughly half of all possible tile arrangements — the rest are mathematically impossible to finish — so the shuffle runs a parity check and re-shuffles if it lands on an unsolvable configuration.</p>
+        <p><strong>The link.</strong> Rather than requiring a database and accounts, the puzzle's state (image reference, grid size, and shuffle seed) is encoded directly into the link. Opening the link regenerates the exact same scrambled puzzle every time, deterministically, from that seed.</p>
+        <p><strong>Bundling.</strong> Since this game shipped alongside several other mini-games in one Unity project, I also handled merging the separate codebases into a single build — resolving overlapping asset names, unifying the menu/navigation layer so all games sat behind one home screen, and standardizing how each game read and wrote save data so they didn't clash. UI and puzzle art assets were designed in Figma and exported straight into Unity's sprite pipeline.</p>
       </div>
     </div>
 
     <!-- PLAYER FLOW -->
-    <div class="content-section section-blocked" id="flow">
-      <div class="blocked-overlay">
-        <div class="blocked-stamp"><span class="blocked-stamp-text">BLOCKED</span></div>
-      </div>
+    <div class="content-section" id="flow">
       <p class="section-eyebrow">Player Flow</p>
-      <h2 class="section-heading">GUIDING<br><span class="yellow">THE PLAYER.</span></h2>
+      <h2 class="section-heading">FROM PHOTO<br><span class="yellow">TO PUZZLE.</span></h2>
       <div class="prose">
-        <p>To be revealed soon!.</p>
+        <p>There are two very different users in this project, and the flow had to work for both of them without a manual:</p>
+        <p><strong>The sender</strong> uploads a photo, drags a difficulty slider, and taps "Generate." That's it — the link is copied automatically, ready to drop into a text or DM.</p>
+        <p><strong>The solver</strong> just opens a link. They land on a shuffled grid with no instructions needed, because the interaction is the same one everyone already knows from physical sliding puzzles: tap or drag a tile next to the empty slot to move it. A move counter and a subtle "getting warmer" cue near the end keep it from feeling like a dead end if someone gets stuck.</p>
+        <p>On the final correct move, the last tile locks in and the puzzle border does a quick reveal animation before showing the completed image at full size.</p>
       </div>
       <div class="callout">
-        <p><strong>Key technique:</strong> Placeholder — to be written.</p>
+        <p><strong>Key technique:</strong> The solver never sees a loading screen or a "click to start" button — the puzzle is already visible and interactive the instant the link opens, since every second of friction before the "aha" moment works against the whole point of the gift.</p>
       </div>
     </div>
 
     <!-- SCREENSHOTS -->
-    <div class="content-section section-blocked" id="screenshots">
-      <div class="blocked-overlay">
-        <div class="blocked-stamp"><span class="blocked-stamp-text">PENDING</span></div>
-      </div>
+    <div class="content-section" id="screenshots">
       <p class="section-eyebrow">Screenshots</p>
-      <h2 class="section-heading">IN THE<br><span class="yellow">LEVEL.</span></h2>
+      <h2 class="section-heading">IN THE<br><span class="yellow">APP.</span></h2>
+      <div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <div style="width:240px; max-width:100%;">
+          <img src="Images/project-02-shot-02.png" alt="Upload and difficulty selection screen on mobile" style="width:100%; height:auto; display:block; border-radius:4px;">
+        </div>
+        <div style="width:240px; max-width:100%;">
+          <img src="Images/project-02-shot-01.png" alt="Shuffled sliding puzzle in progress on mobile" style="width:100%; height:auto; display:block; border-radius:4px;">
+        </div>
+      </div>
       <div class="media-grid">
-        <div class="media-cell"><div class="media-cell-placeholder">Screenshot 01</div></div>
-        <div class="media-cell"><div class="media-cell-placeholder">Screenshot 02</div></div>
-        <div class="media-cell"><div class="media-cell-placeholder">Screenshot 03</div></div>
-        <div class="media-cell"><div class="media-cell-placeholder">Screenshot 04</div></div>
+        <div class="media-cell"><div class="media-cell-placeholder">Reveal animation</div></div>
+        <div class="media-cell"><div class="media-cell-placeholder">More screens coming soon</div></div>
       </div>
     </div>
 
     <!-- LESSONS -->
-    <div class="content-section section-blocked" id="lessons">
-      <div class="blocked-overlay">
-        <div class="blocked-stamp"><span class="blocked-stamp-text">SOON™</span></div>
-      </div>
+    <div class="content-section" id="lessons">
       <p class="section-eyebrow">Lessons Learned</p>
       <h2 class="section-heading">WHAT I<br><span class="yellow">TOOK AWAY.</span></h2>
       <div class="lesson-list">
         <div class="lesson-item">
           <div class="lesson-num">01</div>
-          <div class="lesson-text"><strong>Lesson title here</strong> — to be written.</div>
+          <div class="lesson-text"><strong>Going mobile for the first time was the biggest challenge.</strong> This was my first project targeting mobile, and the hardest part turned out to be something I hadn't even planned for: getting the image gallery to work. Letting someone pick a photo from their phone's camera roll meant dealing with native gallery/file-picker permissions, handling wildly inconsistent image sizes and EXIF orientation data from phone cameras, and keeping memory usage under control so a full-resolution photo didn't crash the puzzle slicer on lower-end devices.</div>
         </div>
         <div class="lesson-item">
           <div class="lesson-num">02</div>
-          <div class="lesson-text"><strong>Lesson title here</strong> — to be written.</div>
+          <div class="lesson-text"><strong>Not every shuffle is a fair shuffle.</strong> A naive random shuffle produces unsolvable boards about half the time. Learning the parity rule behind the classic 15-puzzle, and checking for it before ever showing a board to the player, was one of the most important fixes in the whole project.</div>
         </div>
         <div class="lesson-item">
           <div class="lesson-num">03</div>
-          <div class="lesson-text"><strong>Lesson title here</strong> — to be written.</div>
+          <div class="lesson-text"><strong>State can live in the URL, not just a database.</strong> Encoding the image reference, grid size, and shuffle seed into the link itself meant the app could stay serverless-simple and every puzzle stayed deterministic and shareable without needing accounts or a backend to maintain.</div>
+        </div>
+        <div class="lesson-item">
+          <div class="lesson-num">04</div>
+          <div class="lesson-text"><strong>Merging separate games into one build is its own skill.</strong> Combining multiple mini-games — each built with their own assumptions about navigation and save data — into a single cohesive app taught me a lot about writing integration-friendly code up front, rather than untangling it after the fact.</div>
         </div>
       </div>
     </div>
@@ -612,12 +214,8 @@
   </a>
 </div>
 
-<div class="caution-bar-bottom"></div>
-
 <div class="footer-strip">
   <span>© 2026 Constantin — Game Designer</span>
-  <span> PAGE UNDER CONSTRUCTION </span>
-  <span>Check back soon</span>
 </div>
 
 </body>
